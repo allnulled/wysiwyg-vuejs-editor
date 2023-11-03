@@ -1,0 +1,65 @@
+[fuente de="20px"]negrita[/fuente]
+    [negrita] Esto es un texto en negrita [/negrita]
+
+[fuente de="20px"]cursiva[/fuente]
+    [cursiva]Esto es un texto en cursiva[/cursiva]
+
+[fuente de="20px"]subrayado[/fuente]
+    [subrayado]Esto es un texto subrayado[/subrayado]
+
+[fuente de="20px"]tachado[/fuente]
+    [tachado]Esto es un texto tachado[/tachado]
+
+[fuente de="20px"]fuente[/fuente]
+    [fuente de="10px"]Esto es un texto con fuente[/fuente]
+
+[fuente de="20px"]color_de_fondo[/fuente]
+    [color_de_fondo de="red"]Esto es un texto con color de fondo[/color_de_fondo]
+
+[fuente de="20px"]color_de_letra[/fuente]
+    [color_de_letra de="#333333"]Esto es un texto con color de letra[/color_de_letra]
+
+[fuente de="20px"]alineado[/fuente]
+    [alineado a="left"]Esto es un texto alineado a la izquierda[/alineado]
+    [alineado a="right"]Esto es un texto alineado a la derecha[/alineado]
+    [alineado a="center"]Esto es un texto alineado al centro[/alineado]
+    [alineado a="justify"]Esto es un texto alineado al justificado[/alineado]
+
+[fuente de="20px"]lista_ordenada, punto[/fuente]
+    [lista_ordenada]
+        [punto]Esto es un texto de lista ordenada[/punto]
+        [punto]Esto es un texto de lista ordenada[/punto]
+        [punto]Esto es un texto de lista ordenada[/punto]
+    [/lista_ordenada]
+
+[fuente de="20px"]lista_desordenada, punto[/fuente]
+    [lista_desordenada]
+        [punto]Esto es un texto de lista ordenada[/punto]
+        [punto]Esto es un texto de lista ordenada[/punto]
+        [punto]Esto es un texto de lista ordenada[/punto]
+    [/lista_desordenada]
+    
+[fuente de="20px"]flotacion[/fuente]
+    [flotacion a="left"]Texto flotante a la izquierda[/flotacion]
+    [flotacion a="right"]Texto flotante a la derecha[/flotacion]
+
+[fuente de="20px"]link[/fuente]
+    [link a="https://github.com/allnulled"]Esto es un texto de link[/link]
+
+[fuente de="20px"]imagen[/fuente]
+    [imagen de="https://github.com/allnulled"][/imagen]
+
+[fuente de="20px"]codigo[/fuente]
+    [codigo]Esto es un texto de codigo[/codigo]
+
+[fuente de="20px"]tabla, fila, celda[/fuente]
+    [tabla]
+        [fila]
+            [celda]Esto es una celda[/celda]
+            [celda]Esto es una celda[/celda]
+            [celda]Esto es una celda[/celda]
+        [/fila]
+    [/tabla]
+
+
+[link a="https://github.com/allnulled"]<allnulled>[/link]

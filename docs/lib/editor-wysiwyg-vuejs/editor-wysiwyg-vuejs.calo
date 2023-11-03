@@ -1,0 +1,272 @@
+asigno window.EditorWysiwygVuejs como un componente vue con nombre "EditorWysiwygVuejs" con plantilla {
+  <div class="EditorWysiwygVuejs Component">
+    <div v-if="modo === 'editor'">
+      <div class="editor_wysiwyg_panel_de_botones">
+        <button style="min-width: auto;" v-on:click="() => alternar_marcas()">Marcas</button>
+        <button style="min-width: auto;" v-on:click="() => cambiar_a_modo('ayuda')">Guía</button>
+        <button style="min-width: auto;" v-on:click="() => cambiar_a_modo('vista')">Visualizar</button>
+      </div>
+      <div class="editor_wysiwyg_contenedor_de_panel_de_marcas" v-if="esta_mostrando_marcas">
+        <div class="editor_wysiwyg_panel_de_marcas">
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('negrita')">Negrita</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('cursiva')">Cursiva</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('subrayado')">Subrayado</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('tachado')">Tachado</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('fuente')">Tamaño</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('color_de_fondo')">Color de fondo</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('color_de_fuente')">Color de fuente</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('alineado_izquierda')">Alineado izquierda</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('alineado_derecha')">Alineado derecha</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('alineado_centro')">Alineado centro</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('alineado_justificado')">Alineado justificado</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('lista_ordenada')">Lista ordenada</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('lista_desordenada')">Lista desordenada</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('punto')">Punto</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('flotacion_izquierda')">Flotación izquierda</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('flotacion_derecha')">Flotación derecha</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('link')">Link</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('imagen')">Imagen</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('codigo')">Codigo</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('tabla')">Tabla</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('fila')">Fila</button>
+          <button class="editor_wysiwyg_boton_de_marca" v-on:click="() => insertar_marca('celda')">Celda</button>
+        </div>
+      </div>
+      <div>
+        <textarea class="editor_wysiwyg_textarea_editor" v-model="contenido_en_codigo" ref="editor_de_contenido"></textarea>
+        <div v-if="error">
+          {{ error }}
+        </div>
+      </div>
+    </div>
+    <div v-else-if="modo === 'vista'">
+      <div class="editor_wysiwyg_panel_de_botones">
+        <button v-on:click="() => cambiar_a_modo('editor')">Editar</button>
+      </div>
+      <div>
+        <div class="editor_wysiwyg_visualizador" v-html="contenido_en_html"></div>
+      </div>
+    </div>
+    <div v-else-if="modo === 'ayuda'">
+      <div class="editor_wysiwyg_panel_de_botones">
+        <button v-on:click="() => cambiar_a_modo('editor')">Volver</button>
+      </div>
+      <div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Negrita</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [negrita][/negrita]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Cursiva</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [cursiva][/cursiva]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Subrayado</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [subrayado][/subrayado]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Tachado</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [tachado][/tachado]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Tamaño de fuente</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [fuente de="12px"][/fuente]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Color de fondo</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [color_de_fondo de="black"][/color_de_fondo]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Color de letra</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [color_de_letra de="white"][/color_de_letra]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Alineado izquierda</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [alineado a="left"][/alineado]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Alineado derecha</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [alineado a="right"][/alineado]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Alineado centro</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [alineado a="center"][/alineado]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Alineado justificado</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [alineado a="justify"][/alineado]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Lista ordenada</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [lista_ordenada]
+                [punto][/punto]
+            [/lista_ordenada]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Lista desordenada</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [lista_desordenada]
+                <div>[punto][/punto]</div>
+            [/lista_desordenada]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Flotación izquierda</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [flotacion a="left"][/flotacion]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Flotación derecha</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [flotacion a="right"][/flotacion]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Link</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [link a="url"][/link]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Imagen</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [imagen de="url"][/imagen]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Codigo</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [codigo][/codigo]
+          </div>
+        </div>
+        <div class="editor_wysiwyg_item_de_guia">
+          <div class="editor_wysiwyg_titulo">Tabla</div>
+          <div class="editor_wysiwyg_ejemplo">
+            [tabla]
+                <div>[fila expandida="4"]</div>
+                    <div>[celda][/celda]</div>
+                    <div>[celda expandida="3"][/celda]</div>
+                    <div>[celda][/celda]</div>
+                <div>[/fila]</div>
+            [/tabla]
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+} con lógica {
+  retorno {
+    propiedad props como {
+      valorPorDefecto: {
+        type: String,
+        default: ""
+      },
+      alCambiar: {
+        type: Function,
+        default: una función
+      }
+    }.
+    método data donde {
+      retorno {
+        modo: "editor",
+        esta_mostrando_marcas: false,
+        contenido_en_codigo: this.valorPorDefecto,
+        contenido_en_html: "",
+        error: undefined
+      }.
+    }.
+    propiedad methods como {
+      método insertar_marca con (marca) donde {
+        asigno this.esta_mostrando_marcas como false.
+        creo editor_de_contenido como this.$refs.editor_de_contenido.
+        hago editor_de_contenido.focus().
+        creo variable texto_de_marca como "".
+        si marca es igual que "negrita" asigno texto_de_marca como '[negrita] [/negrita]'.
+        si marca es igual que "cursiva" asigno texto_de_marca como '[cursiva] [/cursiva]'.
+        si marca es igual que "subrayado" asigno texto_de_marca como '[subrayado] [/subrayado]'.
+        si marca es igual que "tachado" asigno texto_de_marca como '[tachado] [/tachado]'.
+        si marca es igual que "fuente" asigno texto_de_marca como '[fuente de="12px"] [/fuente]'.
+        si marca es igual que "color_de_fondo" asigno texto_de_marca como '[color_de_fondo de="white"] [/color_de_fondo]'.
+        si marca es igual que "color_de_fuente" asigno texto_de_marca como '[color_de_fuente de="black"] [/color_de_fuente]'.
+        si marca es igual que "alineado_izquierda" asigno texto_de_marca como '[alineado a="izquierda"] [/alineado]'.
+        si marca es igual que "alineado_derecha" asigno texto_de_marca como '[alineado a="derecha"] [/alineado]'.
+        si marca es igual que "alineado_centro" asigno texto_de_marca como '[alineado a="centro"] [/alineado]'.
+        si marca es igual que "alineado_justificado" asigno texto_de_marca como '[alineado a="justificado"] [/alineado]'.
+        si marca es igual que "lista_ordenada" asigno texto_de_marca como '[lista_ordenada] [/lista_ordenada]'.
+        si marca es igual que "lista_desordenada" asigno texto_de_marca como '[lista_desordenada] [/lista_desordenada]'.
+        si marca es igual que "punto" asigno texto_de_marca como '[punto] [/punto]'.
+        si marca es igual que "flotacion_izquierda" asigno texto_de_marca como '[flotacion a="izquierda"] [/flotacion]'.
+        si marca es igual que "flotacion_derecha" asigno texto_de_marca como '[flotacion a="derecha"] [/flotacion]'.
+        si marca es igual que "link" asigno texto_de_marca como '[link a=""] [/link]'.
+        si marca es igual que "imagen" asigno texto_de_marca como '[imagen de=""] [/imagen]'.
+        si marca es igual que "codigo" asigno texto_de_marca como '[codigo] [/codigo]'.
+        si marca es igual que "tabla" asigno texto_de_marca como '[tabla] [/tabla]'.
+        si marca es igual que "fila" asigno texto_de_marca como '[fila expandida="1"] [/fila]'.
+        si marca es igual que "celda" asigno texto_de_marca como '[celda expandida="1"] [/celda]'.
+        creo posicion_inicial como editor_de_contenido.selectionStart.
+        creo posicion_final como editor_de_contenido.selectionEnd.
+        creo texto_inicial como editor_de_contenido.value.
+        creo texto_resultante como texto_inicial.substr(0, posicion_inicial) + texto_de_marca + texto_inicial.substr(posicion_final).
+        asigno this.contenido_en_codigo como texto_resultante.
+        hago this.$forceUpdate(true).
+        hago setTimeout(una función donde {
+          asigno editor_de_contenido.selectionStart como texto_inicial.substr(0, posicion_inicial).length + texto_de_marca.length - 4 - marca.length.
+          asigno editor_de_contenido.selectionEnd como editor_de_contenido.selectionStart + 1.
+        }).
+      }.
+      método alternar_marcas donde {
+        si this.esta_mostrando_marcas es igual que true {
+          asigno this.esta_mostrando_marcas como false.
+        } y si no {
+          asigno this.esta_mostrando_marcas como true.
+        }.
+      }.
+      método transpilar_codigo donde {
+        creo resultado como Editor_wysiwyg_vuejs_parser.parse(this.contenido_en_codigo).
+        asigno this.contenido_en_html como resultado.
+        hago this.alCambiar(this.contenido_en_codigo, this).
+      }.
+      método cambiar_a_modo con (nuevo_modo) donde {
+        si nuevo_modo es igual que "vista" {
+          intento {
+            hago this.transpilar_codigo().
+          } en errores {
+            asigno this.error como error.
+            retorno.
+          }.
+          asigno this.error como undefined.
+          asigno this.modo como "vista".
+        } pero si nuevo_modo es igual que "editor" {
+          asigno this.modo como "editor".
+        } pero si nuevo_modo es igual que "ayuda" {
+          asigno this.modo como "ayuda".
+        }.
+      }.
+    }.
+  }.
+}.

@@ -1,0 +1,65 @@
+<span style="font-size: 20px;">negrita</fuente><br/>
+    <b> Esto es un texto en negrita </negrita><br/>
+<br/>
+<span style="font-size: 20px;">cursiva</fuente><br/>
+    <i>Esto es un texto en cursiva</cursiva><br/>
+<br/>
+<span style="font-size: 20px;">subrayado</fuente><br/>
+    <u>Esto es un texto subrayado</subrayado><br/>
+<br/>
+<span style="font-size: 20px;">tachado</fuente><br/>
+    <del>Esto es un texto tachado</tachado><br/>
+<br/>
+<span style="font-size: 20px;">fuente</fuente><br/>
+    <span style="font-size: 10px;">Esto es un texto con fuente</fuente><br/>
+<br/>
+<span style="font-size: 20px;">color_de_fondo</fuente><br/>
+    <span style="background-color: red;">Esto es un texto con color de fondo</color_de_fondo><br/>
+<br/>
+<span style="font-size: 20px;">color_de_letra</fuente><br/>
+    <span style="color: #333333;">Esto es un texto con color de letra</color_de_letra><br/>
+<br/>
+<span style="font-size: 20px;">alineado</fuente><br/>
+    <span style="text-align: left;">Esto es un texto alineado a la izquierda</alineado><br/>
+    <span style="text-align: right;">Esto es un texto alineado a la derecha</alineado><br/>
+    <span style="text-align: center;">Esto es un texto alineado al centro</alineado><br/>
+    <span style="text-align: justify;">Esto es un texto alineado al justificado</alineado><br/>
+<br/>
+<span style="font-size: 20px;">lista_ordenada, punto</fuente><br/>
+    <ol><br/>
+        <li>Esto es un texto de lista ordenada</punto><br/>
+        <li>Esto es un texto de lista ordenada</punto><br/>
+        <li>Esto es un texto de lista ordenada</punto><br/>
+    </lista_ordenada><br/>
+<br/>
+<span style="font-size: 20px;">lista_desordenada, punto</fuente><br/>
+    <ul><br/>
+        <li>Esto es un texto de lista ordenada</punto><br/>
+        <li>Esto es un texto de lista ordenada</punto><br/>
+        <li>Esto es un texto de lista ordenada</punto><br/>
+    </lista_desordenada><br/>
+    <br/>
+<span style="font-size: 20px;">flotacion</fuente><br/>
+    <span style="float: left;">Texto flotante a la izquierda</flotacion><br/>
+    <span style="float: right;">Texto flotante a la izquierda</flotacion><br/>
+<br/>
+<span style="font-size: 20px;">link</fuente><br/>
+    <a href="https://github.com/allnulled">Esto es un texto de link</link><br/>
+<br/>
+<span style="font-size: 20px;">imagen</fuente><br/>
+    <img src="https://github.com/allnulled"></imagen><br/>
+<br/>
+<span style="font-size: 20px;">codigo</fuente><br/>
+    <code>Esto es un texto de codigo</codigo><br/>
+<br/>
+<span style="font-size: 20px;">tabla, fila, celda</fuente><br/>
+    <table><br/>
+        <tr><br/>
+            <td>Esto es una celda</celda><br/>
+            <td>Esto es una celda</celda><br/>
+            <td>Esto es una celda</celda><br/>
+        </fila><br/>
+    </tabla><br/>
+<br/>
+<br/>
+<a href="https://github.com/allnulled">&lt;allnulled&gt;</link>

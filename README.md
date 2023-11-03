@@ -2,6 +2,12 @@
 
 Editor tipo WYSIWYG para Vue.js (versión 2).
 
+## Demo
+
+Puedes ir a la demo online aquí:
+
+ - [https://allnulled.github.io/wysiwyg-vuejs-editor/](https://allnulled.github.io/wysiwyg-vuejs-editor/)
+
 ## Instalación
 
 Desde consola:
